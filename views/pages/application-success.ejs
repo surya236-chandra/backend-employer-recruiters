@@ -1,0 +1,3 @@
+<%- include('../partials/head', { title }) %>
+<section class="success-page"><div class="success-icon">✓</div><span class="section-kicker">APPLICATION SENT</span><h1>One good move.<br><span class="text-accent">Done.</span></h1><p>Thanks, <%= applicant.name %>. Your application for <strong><%= job.jobdesignation %></strong> at <strong><%= job.companyname %></strong> has been received.</p><p class="success-note">We’ve sent a confirmation to <%= applicant.email %>.</p><a class="button button-primary" href="/jobs">Explore more jobs <span>→</span></a></section>
+<%- include('../partials/foot') %>

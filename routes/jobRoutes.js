@@ -1,0 +1,22 @@
+import { Router } from 'express';
+import { apply, createApplicant, createJob, deleteApplicant, deleteJob, getApplicant, listApplicants, listJobs, loadJob, showCreateForm, showJob, showUpdateForm, updateApplicant, updateJob } from '../controllers/jobController.js';
+import { requireJobOwner, requireRecruiter } from '../middleware/auth.js';
+import { validateApplicant, validateJob } from '../middleware/validation.js';
+import { resumeUpload } from '../middleware/upload.js';
+
+const router = Router();
+router.get('/jobs', listJobs);
+router.get('/jobs/new', requireRecruiter, showCreateForm);
+router.post('/jobs', requireRecruiter, validateJob, createJob);
+router.get('/jobs/:id/update', requireRecruiter, loadJob, requireJobOwner, showUpdateForm);
+router.post('/jobs/:id/update', requireRecruiter, loadJob, requireJobOwner, validateJob, updateJob);
+router.post('/jobs/:id/delete', requireRecruiter, loadJob, requireJobOwner, deleteJob);
+router.get('/jobs/:id/delete', requireRecruiter, loadJob, requireJobOwner, deleteJob);
+router.get('/jobs/:id/applicants', requireRecruiter, loadJob, requireJobOwner, listApplicants);
+router.post('/jobs/:id/applicants', requireRecruiter, loadJob, requireJobOwner, createApplicant);
+router.get('/jobs/:id/applicants/:applicantId', requireRecruiter, loadJob, requireJobOwner, getApplicant);
+router.put('/jobs/:id/applicants/:applicantId', requireRecruiter, loadJob, requireJobOwner, updateApplicant);
+router.delete('/jobs/:id/applicants/:applicantId', requireRecruiter, loadJob, requireJobOwner, deleteApplicant);
+router.post('/apply/:id', loadJob, resumeUpload.single('resume'), validateApplicant, apply);
+router.get('/jobs/:id', loadJob, showJob);
+export default router;

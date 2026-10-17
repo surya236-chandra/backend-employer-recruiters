@@ -1,0 +1,27 @@
+<%- include('../partials/head', { title }) %>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> A better way to find your next move</div>
+    <h1>Good things<br>happen <span class="text-accent">at work.</span></h1>
+    <p class="hero-description">Find a role that feels right. Meet teams ready to help you do your best work.</p>
+    <form class="search-form hero-search" action="/jobs" method="get">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <label class="visually-hidden" for="hero-q">Role, company, or skill</label>
+      <input id="hero-q" name="q" placeholder="Role, company, or skill" autocomplete="off">
+      <button class="button button-primary" type="submit">Find a job <span aria-hidden="true">→</span></button>
+    </form>
+    <p class="hero-note"><span class="note-spark">✦</span> Clear opportunities. Real humans. Your next chapter.</p>
+    <% if (lastVisit) { %><p class="visit-note">Good to see you again. You last visited <%= lastVisit %>.</p><% } %>
+  </div>
+  <div class="hero-visual" aria-label="Illustration of a person finding their next opportunity">
+    <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+    <div class="visual-shape shape-back"></div><div class="visual-shape shape-main"></div>
+    <div class="floating-card card-match"><span class="match-icon">✳</span><span><strong>Your next match</strong><small>Looks promising</small></span><span class="match-check">✓</span></div>
+    <div class="floating-card card-role"><span class="role-icon">↗</span><span><strong>Product designer</strong><small>Good work, great people</small></span></div>
+    <div class="person"><div class="person-hair"></div><div class="person-head"><div class="person-ear"></div><div class="person-face"><span class="eye eye-one"></span><span class="eye eye-two"></span><span class="smile"></span></div></div><div class="person-neck"></div><div class="person-body"><div class="person-sleeve"></div><div class="person-arm"></div></div><div class="person-laptop"><span>e.</span></div></div>
+    <span class="decor-star star-a">✳</span><span class="decor-star star-b">✦</span><span class="decor-dot dot-a"></span><span class="decor-dot dot-b"></span>
+  </div>
+</section>
+<section class="trust-strip"><div class="trust-inner"><span class="trust-label">A fresh start, wherever you are</span><span class="trust-line"></span><span class="trust-item"><b>01</b> Find work that fits</span><span class="trust-item"><b>02</b> Meet thoughtful teams</span><span class="trust-item"><b>03</b> Make your next move</span></div></section>
+<section class="home-jobs"><div class="section-heading"><div><span class="section-kicker">THE RIGHT ROLE IS OUT THERE</span><h2>A good place to start.</h2></div><a class="text-link" href="/jobs">Explore open roles <span>→</span></a></div><div class="empty-feature"><span class="feature-spark">✦</span><div><strong>Make room for something good.</strong><p>Browse open roles and find an opportunity that fits your next chapter.</p></div><a class="button button-outline" href="/jobs">Explore jobs <span>→</span></a></div></section>
+<%- include('../partials/foot') %>
